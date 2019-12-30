@@ -1,0 +1,102 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <h1>{{ title }}</h1>
+    <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title.
+    </span>
+</div>
+<div id="app-2">
+    <h1>{{ title }}</h1>
+    <span v-if="seen">
+        Now you can see me. Change seen variable to false.
+    </span>
+</div>
+
+<div id="app-3">
+    <h1>{{ title }}</h1>
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+    <p>{{ doMore }}</p>
+</div>
+
+<div id="app-4">
+    <h1>{{ title }}</h1>
+    <span>{{ message }}</span>
+    <input v-model="message">
+    <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+<div id="app-5">
+    <h1>{{ title }}</h1>
+    <ol>
+        <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+        ></todo-item>
+    </ol>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: 'It\'s the hello Vue',
+            message: 'Hello Vue! Today is: ' + new Date().toLocaleString()
+        },
+    });
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            title: 'Binding if clause',
+            seen: true
+        },
+    });
+
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            title: 'Iterating an array.',
+            todos: [
+                {text: 'Learn JavaScript'},
+                {text: 'Learn Vue'},
+                {text: 'Build something awesome'},
+            ],
+            doMore: 'To add another todo item type on console: app3.todos.push({text: \'New item\'})'
+        },
+    });
+
+    var app4 = new Vue({
+        el: '#app-4',
+        data: {
+            title: 'Handling User Input.',
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function() {
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    });
+
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{todo.text}}</li>',
+    });
+
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            title: 'It\'s a Vue component!',
+            groceryList: [
+                {id: 0, text: 'Vegetables'},
+                {id: 1, text: 'Cheese'},
+                {id: 2, text: 'Wharever else humans are supposed to eat or drink.'},
+            ]
+        }
+    });
+</script>
