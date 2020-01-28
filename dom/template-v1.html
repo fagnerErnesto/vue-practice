@@ -1,45 +1,65 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<div id="app">
-    <h1>{{ title }}</h1>
+    <div class="card-group">
+<div id="app" class="card">
+    <div class="card-header">
+        <h1 class="card-title">{{ title }}</h1>
+        </div>
+    <div class="card-body">
     <span v-bind:title="message">
         Hover your mouse over me for a few seconds to see my dynamically bound title.
     </span>
+    </div>
 </div>
-<div id="app-2">
-    <h1>{{ title }}</h1>
+<div id="app-2" class="card">
+    <div class="card-header">
+        <h1 class="card-title">{{ title }}</h1>
+    </div>
+    <div class="card-body">
     <span v-if="seen">
         Now you can see me. Change seen variable to false.
     </span>
+    </div>
 </div>
 
-<div id="app-3">
-    <h1>{{ title }}</h1>
-    <ol>
-        <li v-for="todo in todos">
+<div id="app-3" class="card">
+    <div class="card-header">
+        <h1 class="card-title">{{ title }}</h1>
+    </div>
+    <div class="card-body">
+    <ol class="list-group">
+        <li v-for="todo in todos" class="list-group-item">
             {{ todo.text }}
         </li>
     </ol>
     <p>{{ doMore }}</p>
+    </div>
 </div>
 
-<div id="app-4">
-    <h1>{{ title }}</h1>
-    <span>{{ message }}</span>
-    <input v-model="message">
-    <button v-on:click="reverseMessage">Reverse Message</button>
+<div id="app-4" class="card">
+    <div class="card-header">
+        <h1 class="card-title">{{ title }}</h1>
+    </div>
+    <div class="card-body">
+        <span>{{ message }}</span>
+        <input v-model="message" class="form-control">
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
 </div>
 
-<div id="app-5">
-    <h1>{{ title }}</h1>
-    <ol>
+<div id="app-5" class="card">
+    <div class="card-header">
+        <h1 class="card-title">{{ title }}</h1>
+        </div>
+    <div class="card-body">
+    <ol class="list-group">
         <todo-item
             v-for="item in groceryList"
             v-bind:todo="item"
             v-bind:key="item.id"
         ></todo-item>
     </ol>
+    </div>
 </div>
-
+</div>
 <script>
     var app = new Vue({
         el: '#app',
@@ -85,7 +105,7 @@
 
     Vue.component('todo-item', {
         props: ['todo'],
-        template: '<li>{{todo.text}}</li>',
+        template: '<li class="list-group-item">{{todo.text}}</li>',
     });
 
     var app5 = new Vue({

@@ -1,0 +1,79 @@
+<div class="card-group">
+    <div id="app" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{ title }}</h1>
+            </div>
+        <div class="card-body">
+            <button role="button" class="btn btn-primary" v-on:click="subtrair">&minus; 1</button>
+            <span class="p-2">{{ contador }}</span>
+            <button role="button" class="btn btn-success" v-on:click="somar">&plus; 1</button>
+        </div>
+    </div>
+    <div id="app2" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{ title }}</h1>
+        </div>
+        <div class="card-body">
+            <p v-on:mousemove="mousePosition">Mouse Position: X: {{mouseX}} and Y: {{mouseY}}</p>
+        </div>
+    </div>
+    <div id="app3" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{ title }}</h1>
+        </div>
+        <div class="card-body">
+            <button role="button" class="btn btn-primary" v-on:click="subtrair($event, 2)">&minus;</button>
+            <span class="p-2">{{ contador }}</span>
+            <button role="button" class="btn btn-success" v-on:click="somar($event, 2)">&plus;</button>
+            <p v-on:mousemove="mousePosition">Mouse Position: X: {{mouseX}} and Y: {{mouseY}}</p>
+        </div>
+    </div>
+    <div id="app4" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{ title }}</h1>
+        </div>
+        <div class="card-body">
+            <button role="button" class="btn btn-primary" v-on:click="subtrair($event, 2)">&minus;</button>
+            <span class="p-2">{{ contador }}</span>
+            <button role="button" class="btn btn-success" v-on:click="somar($event, 2)">&plus;</button>
+            <p v-on:mousemove="mousePosition">
+                Mouse Position: X: {{mouseX}} and Y: {{mouseY}}
+                <span v-on:mousemove.stop="">Não Pega esta Posição devido ao .stop</span>
+            </p>
+            <a href="https://google.com" v-on:click.prevent="">Google (não irá por conta do .prevent)</a>
+        </div>
+    </div>
+    <div id="app5" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{ title }}</h1>
+        </div>
+        <div class="card-body">
+            Exibir alerta com qq tecla:
+            <input type="text" v-on:keyup="exibirAlerta" class="form-control"/>
+            Exibir alerta com Enter:
+            <input type="text" v-on:keyup.enter="exibirAlerta" class="form-control"/>
+            Exibir alerta com Alt + Enter:
+            <input type="text" v-on:keyup.enter.alt="exibirAlerta" class="form-control"/>
+        </div>
+    </div>
+</div>
+<div class="card-group">
+    <div id="desafio1" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{title}}</h1>
+        </div>
+        <div class="card-body">
+            Exibir Alert no click:
+            <button class="btn btn-primary" v-on:click="exibirAlerta">Exibir Alerta</button>
+            <br>
+            Exibir conteúdo do input no keydown
+            <input type="text" class="form-control" v-on:keyup="alterarValor" />
+            <br>
+            Exibir conteúdo do input no enter
+            <input type="text" class="form-control" v-on:keydown.enter="alterarValor" />
+
+            <p class="alert alert-success font-weight-bold">{{ valor }}</p>
+        </div>
+    </div>
+</div>
+<script src="/dom/js/eventos.js"></script>

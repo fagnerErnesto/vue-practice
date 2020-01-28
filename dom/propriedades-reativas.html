@@ -1,0 +1,69 @@
+<div class="card-group">
+    <div id="app" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{title}}</h1>
+        </div>
+        <div class="card-body">
+            <h3 class="text-info">{{subTitulo}}</h3>
+            <input type="text" v-model="subTitulo" class="form-control">
+        </div>
+    </div>
+    <div id="app1" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{title}}</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <button v-on:click="subtrair" class="btn btn-primary">&minus;</button>
+                    <button v-on:click="somar" class="btn btn-primary">&plus;</button>
+                    <button v-on:click="subtrair2" class="btn btn-info">&minus;</button>
+                    <button v-on:click="somar2" class="btn btn-info">&plus;</button>
+                    <p>Contadores: {{contador}} | {{contador2}}</p>
+                    <p>Resultado Contador Azul: {{resultado}}</p>
+                    <span class="text-muted small">
+                        <p>A propriedade computada é uma função que o Vue só a executa quando a propriedade que esta função é relacionada sofre alguma alteração.</p>
+                        <p>Neste caso, quando o contador verde é acionado a propriedade computada resultado não é acionada pelo Vue.</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app3" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{title}}</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <button v-on:click="subtrair" class="btn btn-primary">&minus;</button>
+                    <button v-on:click="somar" class="btn btn-primary">&plus;</button>
+                    <button v-on:click="subtrair2" class="btn btn-info">&minus;</button>
+                    <button v-on:click="somar2" class="btn btn-info">&plus;</button>
+                    <p>Contadores: {{contador}} | {{contador2}}</p>
+                    <p>Resultado Contador Azul: {{resultado}}</p>
+                    <span class="text-muted small">
+                        <p>Para esta situação o watch, deve ter o mesmo nome da propriedade a ser monitorada.</p>
+                        <p>Este método de monitoramento recebe dois valores, o valor atual e o anterior, com isso é possível verificar a mudança e executar uma ação assincrona, baseada no novo valor.</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="desafio" class="card">
+        <div class="card-header">
+            <h1 class="card-title" v-once>{{title}}</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <button @click="contador += 5" class="btn btn-primary">&plus; 5</button>
+                    <button @click="contador += 1" class="btn btn-info">&plus; 1</button>
+                    <p>Contadores: {{contador}}</p>
+                    <p>Resultado: {{resultado}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/dom/js/propriedades-reativas.js"></script>
