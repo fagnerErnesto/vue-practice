@@ -26,6 +26,9 @@
                     <li class="list-group-item">
                         <a href="index.php?page=dom|propriedades-reativas.html">Props. Reativas</a>
                     </li>
+                    <li class="list-group-item">
+                        <a href="index.php?page=dom|estilo.html">Estilo</a>
+                    </li>
                 </ul>
                 
             </div>
