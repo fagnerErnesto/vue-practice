@@ -1,5 +1,5 @@
 <style>
-    #app {
+    .box {
         display: flex;
         justify-content: space-around;
     }
@@ -20,12 +20,20 @@
     .c3 {
         background-color: blue;
     }
+    .girar {
+        transform: rotate(45deg);
+    }
 </style>
 
 <div id="app">
-    <div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
-    <div class="demo"></div>
-    <div class="demo"></div>
+    <div class="box">
+        <div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
+        <div class="demo" :class="[classeCss, 'girar']"></div>
+        <div class="demo" :class="[classeCss, 'c3', {girar: aplicarGirar}]"></div>
+    </div>
+    <input type="text" v-model="classeCss">
+    <button @click="girar">Girar</button>
 </div>
+
 
 <script src="/dom/js/estilo.js"></script>
