@@ -8,6 +8,7 @@
         width: 100px;
         height: 100px;
         background-color: gray;
+        margin: 3px;
     }
 
     .c1 {
@@ -31,8 +32,17 @@
         <div class="demo" :class="[classeCss, 'girar']"></div>
         <div class="demo" :class="[classeCss, 'c3', {girar: aplicarGirar}]"></div>
     </div>
-    <input type="text" v-model="classeCss">
-    <button @click="girar">Girar</button>
+    <input type="text" v-model="classeCss"><button @click="girar">Girar</button>
+    <br>
+    <div class="box">
+        <div class="demo" :style="{backgroundColor: cor}"></div>
+        <div class="demo" :style="[meuEstilo, {'height': altura, 'border': '3px solid black'}]"></div>
+        <div class="demo"></div>
+    </div>
+    <input type="text" v-model="cor">
+    <input type="text" v-model="largura">
+
+    
 </div>
 
 
