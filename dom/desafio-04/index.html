@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/dom/desafio-04/styles.css">
+<div id="desafio">
+	<!-- 1) Iniciar a execução do efeito usando botão. 
+    O efeito deve alternadamente trocar as classes "destaque" e
+    "encolher" para cada chamada de setInteval. Use a div abaixo
+	com id "efeito" para associar as classes CSS. -->
+	<h2>#01</h2>
+	<div>
+		<button class="btn btn-primary" @click="iniciarEfeito">Iniciar Efeito</button>
+		<div id="efeito" :class="classe1"></div>
+	</div>
+	
+	<!-- 2) Crie duas classes CSS e associe a div usando a
+		sintaxe de array -->
+	<h2>#02</h2>
+	<div :class="[{perigo}, 'texto-perigo']">Estou sem classe CSS :(</div>
+
+	<!-- 3) Aplique na div abaixo a classe informada pelo usuário
+		(crie classe CSS de exemplo). -->
+	<h2>#03</h2>
+	<div>
+		<input class="form-control" type="text" v-model="personalClass">
+		<div :class="personalClass">{{ personalClass }}</div>
+	</div>
+
+	<!-- 4) Aplique na div abaixo a classe informada pelo usuário e
+    outra classe usando o valor true/false (crie classes CSS de exemplo). -->
+	<h2>#04</h2>
+	<div>
+		<input class="form-control" type="text" v-model="personalClass2">
+		<input class="form-control" type="text" @input="conditionalClass">
+		<div :class="[personalClass2, {perigo2}]">{{ perigo2 }}</div>
+	</div>
+
+	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
+    Associe os estilos a div abaixo  -->
+	<h2>#05</h2>
+	<div>
+		<input class="form-control" type="text" v-model="cor">
+		<div :style="[{backgroundColor: cor}, estilo]"></div>
+	</div>
+
+	<!-- 6) Crie uma barra de progresso simples com setInterval 
+    e binding de estilo. -->
+	<h2>#06</h2>
+	<div>
+		<button class="btn btn-primary" @click="iniciarProgresso">Iniciar</button>
+		<div class="c3" :style="{width: progresso}"></div>
+	</div>
+</div>
+<script src="/dom/desafio-04/app.js"></script>
