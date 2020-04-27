@@ -18,6 +18,9 @@
                         <a href="index.php?page=dom|desafio-04|index.html">Desafio 04</a>
                     </li>
                     <li class="list-group-item">
+                        <a href="index.php?page=dom|desafio-05|index.html">Desafio 05</a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="index.php?page=introduction|primeira-app-v1.html">Primeira App V1</a>
                     </li>
                     <li class="list-group-item">
@@ -31,6 +34,9 @@
                     </li>
                     <li class="list-group-item">
                         <a href="index.php?page=dom|estilo.html">Estilo</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="index.php?page=dom|projeto-01|index.html">Projeto 1</a>
                     </li>
                 </ul>
                 

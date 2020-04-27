@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/dom/projeto-01/projeto01.css">
+<div id="app" class="container">
+    <div class="row d-flex justify-content-around">
+        <div class="col text-center">
+            <p>Player</p>
+            <div id="player-life" :class="playerLifeBar" :style="widthLifePlayer">
+            </div>
+            <p>{{ lifePlayer }}%</p>
+        </div>
+        <div class="col text-center">
+            <p>Monster</p>
+            <div id="monster-life" :class="monsterLifeBar" :style="widthLifeMonster"></div>
+            <p>{{ lifeMonster }}%</p>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around mt-10">
+        <template v-if="showControls">
+            <button @click="attack(false)" class="btn btn-success">Attack</button>
+            <button @click="numSpecialAttack > 0 ? attack(true) : false" class="btn btn-warning">Special Attack ({{numSpecialAttack}})</button>
+            <button @click="addLife" class="btn btn-danger">Life ({{numAddLife}})</button>
+        </template>
+        <button @click="giveUp" class="btn btn-info">{{ showControls ? 'Give Up.' : 'Restart' }}</button>
+        <template v-if="!showControls">
+            <span :class="resultClass">{{resultText}}</span>
+        </template>
+
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <template v-for="obj in arrLog">
+            <div class="row alert alert-danger">
+                The Monster attacked with {{obj.monster}}
+            </div>
+            <div class="row alert alert-info">
+                The Player attacked with {{obj.player}}
+            </div>
+            </template>
+        </div>
+    </div>
+</div>
+<script src="/dom/projeto-01/projeto01.js"></script>

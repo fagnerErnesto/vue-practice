@@ -1,0 +1,11 @@
+.lifeBar {
+    background-color: green;
+}
+
+.lifeBarDanger {
+    background-color: red;
+}
+
+.lifeBar, .lifeBarDanger {
+    height: 10px;
+}
