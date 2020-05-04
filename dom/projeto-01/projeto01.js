@@ -43,14 +43,16 @@ new Vue({
             damagePlayer = Math.ceil(this.calcDamage((damage2 > damage1) 
             ? damage2 : damage1, this.lifePlayer));
 
-            this.lifeMonster -=  damageMonster;
-            this.lifePlayer -= damagePlayer;
-            this.addLog(damagePlayer, damageMonster);
-            
             if (special === true && this.numSpecialAttack > 0) {
                 this.lifePlayer += 2;
                 this.numSpecialAttack -=1;
             }
+
+            this.lifeMonster -=  damageMonster;
+            if (this.lifeMonster > 0) {
+                this.lifePlayer -= damagePlayer;
+            }
+            this.addLog(damagePlayer, damageMonster);
 
             if (this.lifePlayer === 0) {
                 this.resultText = 'You Loose!';
@@ -84,9 +86,7 @@ new Vue({
             this.numSpecialAttack = 10;
         },
         addLog(damagePlayer, damageMonster) {
-            this.arrLog.reverse();
-            this.arrLog.push({'monster': damagePlayer, 'player': damageMonster});
-            this.arrLog.reverse();
+            this.arrLog.unshift({'monster': damagePlayer, 'player': damageMonster});
         }
     }
 });
